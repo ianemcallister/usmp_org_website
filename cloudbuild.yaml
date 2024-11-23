@@ -4,22 +4,22 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/dev-portfolio-435323/usmp_org_website:latest'
+      - 'gcr.io/dev-portfolio-435323/usmp-org-website:latest'
       - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/dev-portfolio-435323/usmp_org_website:latest']
+    args: ['push', 'gcr.io/dev-portfolio-435323/usmp-org-website:latest']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
       - 'run'
       - 'deploy'
-      - 'usmp_org_website'
-      - '--image=gcr.io/dev-portfolio-435323/usmp_org_website:latest'
+      - 'usmp-org-website'
+      - '--image=gcr.io/dev-portfolio-435323/usmp-org-website:latest'
       - '--region=us-west1'
 
 images: 
-  - 'gcr.io/dev-portfolio-435323/usmp_org_website:latest'
+  - 'gcr.io/dev-portfolio-435323/usmp-org-website:latest'
 options:
   logging: CLOUD_LOGGING_ONLY
