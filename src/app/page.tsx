@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState, FormEvent } from 'react';
+import Image from 'next/legacy/image';
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Regex to validate email address
@@ -15,9 +15,9 @@ export default function Home() {
 
     if (emailRegex.test(email)) {
       // Simulate a successful submission
-      setMessage("Success! You've been added to our mailing list.");
+      setMessage('Success! You\'ve been added to our mailing list.');
     } else {
-      setMessage("Failed to add email. Please enter a valid email address.");
+      setMessage('Failed to add email. Please enter a valid email address.');
     }
   };
 
@@ -28,7 +28,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           The Unstructure My Product Podcast
         </h1>
-        <h3>By Ian McAllister</h3>
+        <h3 className='text-3xl font-bold mb-4'>By Ian McAllister</h3>
 
         {/* Cover Art with Blur Edges Effect */}
         <div className="relative w-full max-w-[500px]">
@@ -43,7 +43,6 @@ export default function Home() {
             priority
           />
         </div>
-
 
         {/* Spotify Link */}
         <a
@@ -86,9 +85,9 @@ export default function Home() {
         {message && (
           <p
             className={`mt-4 text-sm ${
-              message.startsWith("Success")
-                ? "text-green-600"
-                : "text-red-600"
+              message.startsWith('Success')
+                ? 'text-green-600'
+                : 'text-red-600'
             }`}
           >
             {message}
