@@ -28,6 +28,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           The Unstructure My Product Podcast
         </h1>
+        <h3>By Ian McAllister</h3>
 
         {/* Cover Art with Blur Edges Effect */}
         <div className="relative w-full max-w-[500px]">
